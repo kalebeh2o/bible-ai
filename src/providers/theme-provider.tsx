@@ -51,9 +51,12 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
     if (newTheme === "dark") {
       document.documentElement.style.setProperty("--background", "#0a0a0a");
       document.documentElement.style.setProperty("--foreground", "#ededed");
+      document.documentElement.style.setProperty("--accent", "#3333cc"); 
     } else {
       document.documentElement.style.setProperty("--background", "#ffffff");
       document.documentElement.style.setProperty("--foreground", "#000000");
+      document.documentElement.style.setProperty("--accent", "#F1F3F4"); // Cor para o light
+
     }
     localStorage.setItem("theme", newTheme);
   };

@@ -1,25 +1,27 @@
 "use client";
 
 import { useState } from "react";
-import { Verse } from "@/core/types/entities";
+import { Book, Verse } from "@/core/types/entities";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useExplanation } from "@/hooks/mutations/useExplanation";
 import { X } from "lucide-react";
 
 interface VerseListProps {
+  chapter: number;
   verses: Verse[];
+  book: string;
 }
 
-export const VerseList = ({ verses }: VerseListProps) => {
+export const VerseList = ({ verses, book, chapter }: VerseListProps) => {
   const [expandedVerse, setExpandedVerse] = useState<number | null>(null);
   const { explanation, loading, getExplanation, clearExplanation } =
     useExplanation();
 
-  const handleVerseClick = async (verseText: string, verseNumber: number) => {
+  const handleVerseClick = async (verseText: string, verseNumber: number, verseChapter: number, book: string) => {
     try {
       setExpandedVerse(verseNumber);
-      await getExplanation(verseText);
+      await getExplanation(`${verseText} ${verseNumber}:${verseChapter} ${book}`);
     } catch (error) {
       console.error(error);
     }
@@ -41,15 +43,15 @@ export const VerseList = ({ verses }: VerseListProps) => {
             <div className="flex flex-col space-y-2">
               <div
                 className="flex cursor-pointer p-2 rounded-md hover:bg-accent transition-colors"
-                onClick={() => handleVerseClick(verse.text, verse.number)}
+                onClick={() => handleVerseClick(verse.text, verse.number, chapter, book )}
               >
-                <span className="font-semibold text-primary mr-2">{verse.number}.</span>
+                <span className="font-semibold  mr-2">{verse.number}.</span>
                 <span className="text-foreground">{verse.text}</span>
               </div>
               
               {expandedVerse === verse.number && (
                 <div className="relative mt-2 animate-in fade-in-50 slide-in-from-top-5 duration-300">
-                  <Card className="border border-border bg-card">
+                  <Card className="border-none bg-amber-100">
                     <CardContent className="p-4">
                       {loading ? (
                         <div className="flex justify-center items-center py-8">

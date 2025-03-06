@@ -18,7 +18,7 @@ export const Header = ({ children }: HeaderProps) => {
   };
 
   return (
-    <header className="bg-background border-b border-border py-2 sticky top-0 z-50 shadow-sm">
+    <header className="bg-background border-b border-accent  py-2 sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-4">
         {/* Desktop Header */}
         <div className="flex justify-between items-center h-14">

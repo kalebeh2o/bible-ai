@@ -89,7 +89,7 @@ export const BibleContainer = () => {
           ) : versicles ? (
             <>
               <VerseHeader versicle={versicles} />
-              <VerseList verses={versicles.verses} />
+              <VerseList verses={versicles.verses} book={selectedBook} chapter={selectedChapter}/>
             </>
           ) : (
             <Card className="w-full shadow-none border-none">
