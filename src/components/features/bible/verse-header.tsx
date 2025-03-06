@@ -9,7 +9,7 @@ interface VerseHeaderProps {
 
 export const VerseHeader = ({ versicle }: VerseHeaderProps) => {
   return (
-    <Card className="mb-6 bg-card shadow-none xs:border-none sm:border-none ">
+    <Card className="mb-6 bg-card shadow-none border-none ">
       <CardContent className="flex flex-col items-center text-center py-6">
         <h2 className="text-2xl font-bold text-foreground">
           {versicle.book.name}
