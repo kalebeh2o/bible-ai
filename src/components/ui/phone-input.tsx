@@ -1,9 +1,13 @@
-"use client"
+"use client";
 import { useEffect, useRef } from "react";
 import { Input } from "./input";
 import Inputmask from "inputmask";  
 
-export function PhoneInput() {
+interface PhoneInputProps {
+  setPhone: (phone: string) => void;
+}
+
+export function PhoneInput({ setPhone }: PhoneInputProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -12,6 +16,11 @@ export function PhoneInput() {
     }
   }, []);
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const cleanPhone = e.target.value.replace(/\D/g, ""); 
+    setPhone(cleanPhone); 
+  };
+
   return (
     <Input
       ref={inputRef}
@@ -19,6 +28,7 @@ export function PhoneInput() {
       placeholder="Telefone"
       className="bg-white border-gray-300 text-gray-800"
       required
+      onChange={handleChange}  // Chamando a função handleChange quando o valor do input mudar
     />
   );
 }

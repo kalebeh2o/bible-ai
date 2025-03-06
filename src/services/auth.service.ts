@@ -8,8 +8,8 @@ export const LoginService = {
       const supabase = await createClient();
 
       const { email, password, phone } = user; 
-
-      const { data, error } = await supabase.auth.signInWithPassword({
+      console.log(user)
+      const { data, error } = await supabase.auth.signUp({
         email,
         password,
         phone
@@ -21,7 +21,7 @@ export const LoginService = {
 
       return { data, status: 200 }; 
     } catch (error) {
-      console.error("Erro ao fazer login:", error);
+      console.error("Erro ao fazer cadastro:", error);
       throw error;
     }
   },

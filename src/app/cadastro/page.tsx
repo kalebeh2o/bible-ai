@@ -1,9 +1,9 @@
 
 
-import { LoginContainer } from "@/components/features/login/login";
+import { SignupContainer } from "@/components/features/login/signup";
 
-export default function LoginPage() {
+export default function SignupPage() {
   return (
-    <LoginContainer></LoginContainer>
+    <SignupContainer></SignupContainer>
   );
 }
