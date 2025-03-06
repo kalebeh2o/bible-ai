@@ -1,6 +1,5 @@
-import { getData } from "../helpers/apiHelper";
-import { Version } from "../types/versions";
-
+import { Version } from "@/core/types";
+import { getData } from "@/helpers/apiHelper";
 export const getVersions = async (): Promise<Version[]> => {
   try {
     const books = await getData<Version[]>("versions", {

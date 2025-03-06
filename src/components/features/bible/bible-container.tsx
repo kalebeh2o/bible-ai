@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useBooks } from "@/hooks/queries/useBooks";
 import { useVersions } from "@/hooks/queries/useVersions";
 import { useVersicles } from "@/hooks/queries/useVersicles";
@@ -13,8 +13,8 @@ import { VerseList } from "./verse-list";
 import { Card, CardContent } from "@/components/ui/card";
 
 export const BibleContainer = () => {
-  const { books, loading: loadingBooks } = useBooks();
-  const { versions, loading: loadingVersions } = useVersions();
+  const { books } = useBooks();
+  const { versions } = useVersions();
 
   const [selectedBook, setSelectedBook] = useState<string>("");
   const [selectedVersion, setSelectedVersion] = useState<string>("");
@@ -92,7 +92,7 @@ export const BibleContainer = () => {
               <VerseList verses={versicles.verses} />
             </>
           ) : (
-            <Card className="w-full">
+            <Card className="w-full shadow-none border-none">
               <CardContent className="flex justify-center items-center p-12 text-center">
                 <p className="text-xl text-muted-foreground">
                   Selecione um livro, capítulo e tradução para ver os

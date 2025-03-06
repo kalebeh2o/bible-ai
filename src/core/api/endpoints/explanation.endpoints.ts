@@ -34,6 +34,7 @@ export const explanationEndpoints = {
                   O versículo e suas referências devem ser destacados em negrito e itálico para facilitar a leitura.
                   O texto explicativo deve ser estruturado em parágrafos (<p>) curtos e diretos, para melhorar a legibilidade.
                   As citações bíblicas devem estar dentro de <blockquote>, garantindo destaque especial.
+                  Destaque os topcos.
                 3. Interatividade e Sofisticação:
                   O artigo deve começar com uma introdução chamativa para engajar o leitor.
                   O uso de listas (<ul> ou <ol>) é encorajado para apresentar pontos importantes de maneira organizada.

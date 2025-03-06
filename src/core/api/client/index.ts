@@ -37,6 +37,3 @@ export const apiClient = {
   delete: <T>(endpoint: string, options?: RequestOptions) =>
     request<T>(endpoint, { ...options, method: "DELETE" }),
 };
-
-export * from "./instance";
-export * from "./interceptors";
