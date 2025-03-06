@@ -20,8 +20,9 @@ export const VerseList = ({ verses, book, chapter }: VerseListProps) => {
 
   const handleVerseClick = async (verseText: string, verseNumber: number, verseChapter: number, book: string) => {
     try {
+      console.log(`${verseText} Capítulo: ${verseChapter}:${verseNumber} Livro: ${book}`)
       setExpandedVerse(verseNumber);
-      await getExplanation(`${verseText} ${verseNumber}:${verseChapter} ${book}`);
+      await getExplanation(`${verseText} ${verseChapter}:${verseNumber} ${book}`);
     } catch (error) {
       console.error(error);
     }

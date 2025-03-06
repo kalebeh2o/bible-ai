@@ -17,8 +17,8 @@ export const BibleContainer = () => {
   const { versions } = useVersions();
 
   const [selectedBook, setSelectedBook] = useState<string>("");
-  const [selectedVersion, setSelectedVersion] = useState<string>("");
-  const [selectedChapter, setSelectedChapter] = useState<number>(0);
+  const [selectedVersion, setSelectedVersion] = useState<string>("nvi");
+  const [selectedChapter, setSelectedChapter] = useState<number>(1);
   const [chapters, setChapters] = useState<number[]>([]);
 
   const { versicles, loading: loadingVersicles } = useVersicles(
@@ -29,11 +29,11 @@ export const BibleContainer = () => {
 
   const handleBookChange = (bookAbbrev: string) => {
     setSelectedBook(bookAbbrev);
+    setSelectedChapter(1)
     const book = books.find((b) => b.abbrev.pt === bookAbbrev);
     if (book) {
       setChapters(Array.from({ length: book.chapters }, (_, i) => i + 1));
     }
-    setSelectedChapter(0);
   };
 
   const handleChapterChange = (chapter: number) => {
