@@ -1,6 +1,6 @@
-import { Book } from "./book";
+import { Book } from "./book.types";
 
-interface verse {
+export interface Verse {
   number: number;
   text: string;
 }
@@ -11,5 +11,5 @@ export interface Versicle {
     number: number;
     verses: number;
   };
-  verses: verse[];
+  verses: Verse[];
 }
