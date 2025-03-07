@@ -52,7 +52,7 @@ export const VerseList = ({ verses, book, chapter }: VerseListProps) => {
               
               {expandedVerse === verse.number && (
                 <div className="relative mt-2 animate-in fade-in-50 slide-in-from-top-5 duration-300">
-                  <Card className="border-none bg-amber-100">
+                  <Card className="border-2">
                     <CardContent className="p-4">
                       {loading ? (
                         <div className="flex justify-center items-center py-8">

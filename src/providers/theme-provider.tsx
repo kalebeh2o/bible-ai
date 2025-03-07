@@ -36,10 +36,7 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
       setTheme(savedTheme);
       applyTheme(savedTheme);
     } else {
-      // Se não tiver um tema salvo, verificar as preferências do sistema
-      const userPreferredTheme = window.matchMedia(
-        "(prefers-color-scheme: dark)"
-      ).matches
+      const userPreferredTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
         ? "dark"
         : "light";
       setTheme(userPreferredTheme);
@@ -49,14 +46,9 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
 
   const applyTheme = (newTheme: "light" | "dark") => {
     if (newTheme === "dark") {
-      document.documentElement.style.setProperty("--background", "#0a0a0a");
-      document.documentElement.style.setProperty("--foreground", "#ededed");
-      document.documentElement.style.setProperty("--accent", "#150E41"); 
+      document.documentElement.classList.add("dark"); 
     } else {
-      document.documentElement.style.setProperty("--background", "#ffffff");
-      document.documentElement.style.setProperty("--foreground", "#000000");
-      document.documentElement.style.setProperty("--accent", "#F1F3F4"); 
-
+      document.documentElement.classList.remove("dark"); 
     }
     localStorage.setItem("theme", newTheme);
   };

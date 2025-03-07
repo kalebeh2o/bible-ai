@@ -76,7 +76,7 @@ export const BibleContainer = () => {
       <main className="flex-1 container mx-auto px-4 py-8">
         <div className="w-full max-w-4xl mx-auto">
           {loadingVersicles ? (
-            <Card className="w-full">
+            <Card className="w-full border-0">
               <CardContent className="flex justify-center items-center p-12">
                 <div className="flex flex-col items-center gap-4">
                   <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
