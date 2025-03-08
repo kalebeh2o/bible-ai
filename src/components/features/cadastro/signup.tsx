@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { SignupCard } from "@/components/features/login/signup-card";  
+import { SignupCard } from "@/components/features/cadastro/signup-card";  
 import { ConfirmEmailCard } from "./confirm-email-card";
 import { createUserParams } from "@/core/types"; 
 import { useSignup } from "@/hooks/queries/useSignup";
@@ -19,7 +19,7 @@ export function SignupContainer() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-amber-50">
+    <div className="flex items-center justify-center  min-h-screen ">
       {success && userEmail ? (
         <ConfirmEmailCard email={userEmail} />
       ) : (

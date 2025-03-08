@@ -26,10 +26,10 @@ export function SignupCard({ handleSignup, loading, error }: SignupCardProps) {
   };
 
   return (
-    <Card className="w-full max-w-sm shadow-lg border border-gray-200 bg-white lg:bg-transparent">
+    <Card className="w-full max-w-sm shadow-lg border   lg:bg-transparent">
       <CardHeader className="flex flex-col items-center">
-        <Church className="w-12 h-12 text-gray-800 bg-text-gray-800" />
-        <CardTitle className="text-center text-gray-800 text-xl mt-2">
+        <Church className="w-12 h-12  bg-text-gray-800" />
+        <CardTitle className="text-center  text-xl mt-2">
           Faça seu cadastro
         </CardTitle>
         <p className="text-sm text-gray-600 mt-1 italic text-center">
@@ -43,7 +43,7 @@ export function SignupCard({ handleSignup, loading, error }: SignupCardProps) {
           <Input
             type="email"
             placeholder="E-mail"
-            className="bg-white border-gray-300 text-gray-800"
+            className=" border-2"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -58,7 +58,7 @@ export function SignupCard({ handleSignup, loading, error }: SignupCardProps) {
             className="w-full bg-gray-800 text-white hover:bg-gray-900 disabled:opacity-50"
             disabled={loading}
           >
-            {loading ? "Cadastrando..." : "Entrar"}
+            {loading ? "Cadastrando..." : "Cadastrar"}
           </Button>
         </form>
       </CardContent>

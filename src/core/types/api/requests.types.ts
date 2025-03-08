@@ -14,7 +14,7 @@ export interface GetExplanationParams {
 }
 
 export interface createUserParams {
-  phone: string;
+  phone?: string;
   email: string;
   password: string;
 }

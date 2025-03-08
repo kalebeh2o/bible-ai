@@ -1,6 +1,6 @@
 
 
-import { SignupContainer } from "@/components/features/login/signup";
+import { SignupContainer } from "@/components/features/cadastro/signup";
 
 export default function SignupPage() {
   return (

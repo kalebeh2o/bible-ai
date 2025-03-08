@@ -26,9 +26,9 @@ export function PhoneInput({ setPhone }: PhoneInputProps) {
       ref={inputRef}
       type="tel"
       placeholder="Telefone"
-      className="bg-white border-gray-300 text-gray-800"
+      className=""
       required
-      onChange={handleChange}  // Chamando a função handleChange quando o valor do input mudar
+      onChange={handleChange}  
     />
   );
 }

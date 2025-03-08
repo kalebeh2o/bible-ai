@@ -18,7 +18,7 @@ export function PasswordInput({ setPassword }: PasswordInputProps) {
       <Input
         type={showPassword ? "text" : "password"}
         placeholder="Senha"
-        className="bg-white border-gray-300 text-gray-800 pr-10"
+        className="  pr-10"
         onChange={(e) => setPassword(e.target.value)}
         required
         minLength={6}
