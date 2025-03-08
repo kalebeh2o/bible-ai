@@ -16,6 +16,7 @@ export default [
       "react/no-unescaped-entities": "off", // Desabilita a verificação de entidades não escapadas
       "no-console": "off", // Avisa sobre o uso de console.log
       "no-unused-vars": "off", // Avisa sobre variáveis não utilizadas
+      "@typescript-eslint/no-empty-object-type": "off",
       "import/order": [
         "off",
         {

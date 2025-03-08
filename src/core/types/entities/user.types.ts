@@ -1,7 +1,6 @@
-import { Session, User, WeakPassword } from "@supabase/supabase-js";
+import { Session, User } from "@supabase/supabase-js";
 
 export interface UserData {
-    user: User | null;
-    session: Session | null;
-
+  user: User | null;
+  session: Session | null;
 }
