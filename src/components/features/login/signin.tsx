@@ -12,7 +12,7 @@ export function SigninContainer() {
     console.log(response);
     const auth = await checkAuth();
     if (auth) {
-      route.push("/biblia");
+      route.push("/");
     }
   };
 

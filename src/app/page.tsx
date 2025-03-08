@@ -1,9 +1,7 @@
+"use client";
 
+import { BibleContainer } from "@/components/features/bible/bible-container";
 
-import { SigninContainer } from "@/components/features/login/signin";
-
-export default function SignupPage() {
-  return (
-    <SigninContainer></SigninContainer>
-  );
+export default function Home() {
+  return <BibleContainer />;
 }

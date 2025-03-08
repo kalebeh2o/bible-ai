@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useAuth } from "@/hooks/queries/useAuth";
 import { useBooks } from "@/hooks/queries/useBooks";
 import { useVersions } from "@/hooks/queries/useVersions";
 import { useVersicles } from "@/hooks/queries/useVersicles";
@@ -11,10 +12,13 @@ import { VersionSelect } from "./version-select";
 import { VerseHeader } from "./verse-header";
 import { VerseList } from "./verse-list";
 import { Card, CardContent } from "@/components/ui/card";
+import { LoginHeader } from "@/components/layout/login-header";
 
 export const BibleContainer = () => {
   const { books } = useBooks();
   const { versions } = useVersions();
+
+  const { isAuthenticated, loading } = useAuth();
 
   const [selectedBook, setSelectedBook] = useState<string>("");
   const [selectedVersion, setSelectedVersion] = useState<string>("nvi");
@@ -29,7 +33,7 @@ export const BibleContainer = () => {
 
   const handleBookChange = (bookAbbrev: string) => {
     setSelectedBook(bookAbbrev);
-    setSelectedChapter(1)
+    setSelectedChapter(1);
     const book = books.find((b) => b.abbrev.pt === bookAbbrev);
     if (book) {
       setChapters(Array.from({ length: book.chapters }, (_, i) => i + 1));
@@ -46,6 +50,7 @@ export const BibleContainer = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
+      {!isAuthenticated && !loading && <LoginHeader />}
       <Header>
         <div className="flex flex-col sm:flex-row gap-4 w-full max-w-3xl">
           <div className="w-full sm:w-1/3">
@@ -89,7 +94,11 @@ export const BibleContainer = () => {
           ) : versicles ? (
             <>
               <VerseHeader versicle={versicles} />
-              <VerseList verses={versicles.verses} book={selectedBook} chapter={selectedChapter}/>
+              <VerseList
+                verses={versicles.verses}
+                book={selectedBook}
+                chapter={selectedChapter}
+              />
             </>
           ) : (
             <Card className="w-full shadow-none border-none">
