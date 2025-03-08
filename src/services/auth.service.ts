@@ -2,11 +2,13 @@ import { createClient } from "@/utils/server";
 import { createUserParams } from "@/core/types";
 import { UserResponse } from "@/core/types";
 
-export const auth = {
-  signup: async (user: createUserParams): Promise<UserResponse> => {
-    try {
-      const supabase = await createClient();
 
+export const auth = {
+
+  signup: async (user: createUserParams): Promise<UserResponse> => {
+    const supabase = await createClient();
+
+    try {
       const { email, password, phone } = user; 
       console.log(user)
       const { data, error } = await supabase.auth.signUp({
@@ -27,9 +29,9 @@ export const auth = {
   },
 
   signin: async (user: createUserParams): Promise<UserResponse> => {
-    try {
-      const supabase = await createClient();
+    const supabase = await createClient();
 
+    try {
       const { email, password } = user; 
       console.log(user)
       const { data, error } = await supabase.auth.signInWithPassword({
@@ -47,4 +49,12 @@ export const auth = {
       throw error;
     }
   },
+
+  isLoggedIn: async () => {
+    const supabase = await createClient();
+
+    const { data } = await supabase.auth.getSession();
+    return !!data.session; 
+  },
+
 };
